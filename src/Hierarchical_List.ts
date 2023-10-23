@@ -652,14 +652,10 @@ class Hierarchical_List {
                 //Code om kortsluitvermogen toe te voegen
                 if ( (this.data[i].keys[22][2]!='') ) {
                   numlines = numlines + 1;
-                  inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
-                    "\" y=\"" + (inSVG[elementCounter].yup-10) +
-                    "\"" +
-                    " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
-                    "," + (inSVG[elementCounter].yup-10) +
-                    ")" +
-                    "\" style=\"text-anchor:middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"10\">" +
-                    htmlspecialchars("" + this.data[i].keys[22][2]) + "kA</text>";
+                  const textX = inSVG[elementCounter].xleft + 15 + 11 * (numlines - 1);
+                  const textY = inSVG[elementCounter].yup - 10;
+                  inSVG[elementCounter].data += `<text x="${textX}" y="${textY}" transform="rotate(-90 ${textX},${textY})" style="text-anchor:middle;border:1px solid black" font-family="Arial, Helvetica, sans-serif" font-size="10">${htmlspecialchars("" + this.data[i].keys[22][2])}</text>`;
+                  inSVG[elementCounter].data += `<rect x="${textX}" y="${textY}" transform="rotate( 90 ${textX} ${textY})" width='40' height = '12' style='fill: none;stroke: black;'></rect>`;
                 }
 
                 //genoeg plaats voorzien aan de rechterkant en eindigen
@@ -727,14 +723,10 @@ class Hierarchical_List {
                 //Code om kortsluitvermogen toe te voegen
                 if ( (this.data[i].keys[22][2]!='') ) {
                   numlines = numlines + 1;
-                  inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
-                    "\" y=\"" + (inSVG[elementCounter].yup-10) +
-                    "\"" +
-                    " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
-                    "," + (inSVG[elementCounter].yup-10) +
-                    ")" +
-                    "\" style=\"text-anchor:middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"10\">" +
-                    htmlspecialchars("" + this.data[i].keys[22][2]) + "kA</text>";
+                  const textX = inSVG[elementCounter].xleft + 15 + 11 * (numlines - 1);
+                  const textY = inSVG[elementCounter].yup - 10;
+                  inSVG[elementCounter].data += `<text x="${textX}" y="${textY}" transform="rotate(-90 ${textX},${textY})" style="text-anchor:middle;border:1px solid black" font-family="Arial, Helvetica, sans-serif" font-size="10">${htmlspecialchars("" + this.data[i].keys[22][2])}</text>`;
+                  inSVG[elementCounter].data += `<rect x="${textX}" y="${textY}" transform="rotate( 90 ${textX} ${textY})" width='40' height = '12' style='fill: none;stroke: black;'></rect>`;
                 }
 
                 //genoeg plaats voorzien aan de rechterkant en eindigen
@@ -815,14 +807,10 @@ class Hierarchical_List {
                 //Code om kortsluitvermogen toe te voegen
                 if ( (this.data[i].keys[22][2]!='') ) {
                   numlines = numlines + 1;
-                  inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
-                    "\" y=\"" + (inSVG[elementCounter].yup-10) +
-                    "\"" +
-                    " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
-                    "," + (inSVG[elementCounter].yup-10) +
-                    ")" +
-                    "\" style=\"text-anchor:middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"10\">" +
-                    htmlspecialchars("" + this.data[i].keys[22][2]) + "kA</text>";
+                  const textX = inSVG[elementCounter].xleft + 15 + 11 * (numlines - 1);
+                  const textY = inSVG[elementCounter].yup - 10;
+                  inSVG[elementCounter].data += `<text x="${textX}" y="${textY}" transform="rotate(-90 ${textX},${textY})" style="text-anchor:middle;border:1px solid black" font-family="Arial, Helvetica, sans-serif" font-size="10">${htmlspecialchars("" + this.data[i].keys[22][2])}</text>`;
+                  inSVG[elementCounter].data += `<rect x="${textX}" y="${textY}" transform="rotate( 90 ${textX} ${textY})" width='40' height = '12' style='fill: none;stroke: black;'></rect>`;
                 }
 
                 //genoeg plaats voorzien aan de rechterkant en eindigen
@@ -1291,14 +1279,10 @@ class Hierarchical_List {
                 //Code om kortsluitvermogen toe te voegen
                 if ( (this.data[i].keys[22][2]!='') ) {
                   numlines = numlines + 1;
-                  inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
-                    "\" y=\"" + (inSVG[elementCounter].yup-10) +
-                    "\"" +
-                    " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
-                    "," + (inSVG[elementCounter].yup-10) +
-                    ")" +
-                    "\" style=\"text-anchor:middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"10\">" +
-                    htmlspecialchars("" + this.data[i].keys[22][2]) + "kA</text>";
+                  const textX = inSVG[elementCounter].xleft + 15 + 11 * (numlines - 1);
+                  const textY = inSVG[elementCounter].yup - 10;
+                  inSVG[elementCounter].data += `<text x="${textX}" y="${textY}" transform="rotate(-90 ${textX},${textY})" style="text-anchor:middle;border:1px solid black" font-family="Arial, Helvetica, sans-serif" font-size="10">${htmlspecialchars("" + this.data[i].keys[22][2])}</text>`;
+                  inSVG[elementCounter].data += `<rect x="${textX}" y="${textY}" transform="rotate( 90 ${textX} ${textY})" width='40' height = '12' style='fill: none;stroke: black;'></rect>`;
                 }
 
                 //genoeg plaats voorzien aan de rechterkant en eindigen
@@ -1347,14 +1331,10 @@ class Hierarchical_List {
                 //Code om kortsluitvermogen toe te voegen
                 if ( (this.data[i].keys[22][2]!='') ) {
                   numlines = numlines + 1;
-                  inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
-                    "\" y=\"" + (inSVG[elementCounter].yup-10) +
-                    "\"" +
-                    " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
-                    "," + (inSVG[elementCounter].yup-10) +
-                    ")" +
-                    "\" style=\"text-anchor:middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"10\">" +
-                    htmlspecialchars("" + this.data[i].keys[22][2]) + "kA</text>";
+                  const textX = (inSVG[elementCounter].xleft + 15 + 11 * (numlines - 1)) + "";
+                  const textY = (inSVG[elementCounter].yup - 10) + "";
+                  inSVG[elementCounter].data += `<text x="${textX}" y="${textY}" transform="rotate(-90 ${textX} ${textY})" style="text-anchor:middle;border:1px solid black" font-family="Arial, Helvetica, sans-serif" font-size="10">${htmlspecialchars("" + this.data[i].keys[22][2])}</text>`;
+                  inSVG[elementCounter].data += `<rect x="${textX}" y="${textY}" transform="rotate( 90 ${textX} ${textY})" width='40' height = '12' style='fill: none;stroke: black;'></rect>`;
                 }
 
                 //genoeg plaats voorzien aan de rechterkant en eindigen
@@ -1415,14 +1395,10 @@ class Hierarchical_List {
                 //Code om kortsluitvermogen toe te voegen
                 if ( (this.data[i].keys[22][2]!='') ) {
                   numlines = numlines + 1;
-                  inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
-                    "\" y=\"" + (inSVG[elementCounter].yup-10) +
-                    "\"" +
-                    " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
-                    "," + (inSVG[elementCounter].yup-10) +
-                    ")" +
-                    "\" style=\"text-anchor:middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"10\">" +
-                    htmlspecialchars("" + this.data[i].keys[22][2]) + "kA</text>";
+                  const textX = inSVG[elementCounter].xleft + 15 + 11 * (numlines - 1);
+                  const textY = inSVG[elementCounter].yup - 10;
+                  inSVG[elementCounter].data += `<text x="${textX}" y="${textY}" transform="rotate(-90 ${textX},${textY})" style="text-anchor:middle;border:1px solid black" font-family="Arial, Helvetica, sans-serif" font-size="10">${htmlspecialchars("" + this.data[i].keys[22][2])}</text>`;
+                  inSVG[elementCounter].data += `<rect x="${textX}" y="${textY}" transform="rotate( 90 ${textX} ${textY})" width='40' height = '12' style='fill: none;stroke: black;'></rect>`;
                 }
 
                 //genoeg plaats voorzien aan de rechterkant en eindigen

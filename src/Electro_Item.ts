@@ -253,7 +253,7 @@ class Electro_Item extends List_Item {
     switch (this.keys[0][2]) {
       case "Lichtcircuit":
         if (this.getKey("lichtkring_poligheid") == "dubbelpolig") {
-          if ((this.getKey("aantal") as Number) > 2) {
+          if ((this.getKey("aantal") as number) > 2) {
             this.setKey("aantal","2");
           }
         }
@@ -264,7 +264,7 @@ class Electro_Item extends List_Item {
         }
         break;
       case "Kring":
-        if ( ( (this.getKey("aantal") as Number) < 1 ) || ( (this.getKey("aantal") as Number) > 4 ) ) {
+        if ( ( (this.getKey("aantal") as number) < 1 ) || ( (this.getKey("aantal") as number) > 4 ) ) {
           this.setKey("aantal","2");
         }
         break;
@@ -418,18 +418,18 @@ class Electro_Item extends List_Item {
         if (this.getKey("zekering")=="differentieel") {
           output += ", \u0394 " + this.stringToHTML(11,3) + "mA";
           output += ", Type:" + this.selectToHTML(17,["","A","B"]);
-          output += ", Kortsluitvermogen: " + this.stringToHTML(22,3) + "kA";
+          output += ", Kortsluitvermogen: " + this.stringToHTML(22,3) + "A";
           output += ", Selectief: " + this.checkboxToHTML(20);
         }
         if (this.getKey("zekering")=="automatisch") {
           output += ", Curve:" + this.selectToHTML(17,["","B","C","D"]);
-          output += ", Kortsluitvermogen: " + this.stringToHTML(22,3) + "kA";
+          output += ", Kortsluitvermogen: " + this.stringToHTML(22,3) + "A";
         }
         if (this.getKey("zekering")=="differentieelautomaat") {
           output += ", \u0394 " + this.stringToHTML(11,3) + "mA";
           output += ", Curve:" + this.selectToHTML(18,["","B","C","D"]);
           output += ", Type:" + this.selectToHTML(17,["","A","B"]);
-          output += ", Kortsluitvermogen: " + this.stringToHTML(22,3) + "kA";
+          output += ", Kortsluitvermogen: " + this.stringToHTML(22,3) + "A";
           output += ", Selectief: " + this.checkboxToHTML(20);
         }
         output += ", Kabel: " + this.checkboxToHTML(12);
@@ -451,19 +451,19 @@ class Electro_Item extends List_Item {
         if (this.getKey("zekering")=="differentieel") {
           output += ", \u0394 " + this.stringToHTML(11,3) + "mA";
           output += ", Type:" + this.selectToHTML(17,["","A","B"]);
-          output += ", Kortsluitvermogen: " + this.stringToHTML(22,3) + "kA";
+          output += ", Kortsluitvermogen: " + this.stringToHTML(22,3) + "A";
           output += ", Selectief: " + this.checkboxToHTML(20);
         }
         if (this.getKey("zekering")=="differentieelautomaat") {
           output += ", \u0394 " + this.stringToHTML(11,3) + "mA";
           output += ", Curve:" + this.selectToHTML(18,["","B","C","D"]);
           output += ", Type:" + this.selectToHTML(17,["","A","B"]);
-          output += ", Kortsluitvermogen: " + this.stringToHTML(22,3) + "kA";
+          output += ", Kortsluitvermogen: " + this.stringToHTML(22,3) + "A";
           output += ", Selectief: " + this.checkboxToHTML(20);
         }
         if (this.getKey("zekering")=="automatisch") {
           output += ", Curve:" + this.selectToHTML(17,["","B","C","D"]);
-          output += ", Kortsluitvermogen: " + this.stringToHTML(22,3) + "kA";
+          output += ", Kortsluitvermogen: " + this.stringToHTML(22,3) + "A";
         }
         output += ", Kabeltype na teller: " + this.stringToHTML(9,10);
         output += ", Kabeltype v&oacute;&oacute;r teller: " + this.stringToHTML(24,10);

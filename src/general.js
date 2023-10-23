@@ -69,6 +69,9 @@ function flattenSVG(SVGstruct,shiftx,shifty,node) {
       if (shifty != 0) {
         outstruct.attributes.getNamedItem("y").nodeValue = parseFloat(outstruct.attributes.getNamedItem("y").nodeValue) + shifty;
       }
+      if (outstruct.attributes.getNamedItem("transform")) {
+        outstruct.attributes.getNamedItem("transform").value = `rotate(90 ${outstruct.attributes.getNamedItem("x").nodeValue},${outstruct.attributes.getNamedItem("y").nodeValue}) translate(-20,-2)`;
+      }
     }
     if (SVGstruct.localName == "circle") {
       if (shiftx != 0) {
