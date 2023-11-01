@@ -639,10 +639,10 @@ class Hierarchical_List {
                 //Code om de curve toe te voegen
                 if ( (this.data[i].keys[17][2]=='B') || (this.data[i].keys[17][2]=='C') || (this.data[i].keys[17][2]=='D') ) {
                   numlines = numlines + 1;
-                  inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
+                  inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+15+12*(numlines-1)) +
                     "\" y=\"" + (inSVG[elementCounter].yup-10) +
                     "\"" +
-                    " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
+                    " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+15+12*(numlines-1)) +
                     "," + (inSVG[elementCounter].yup-10) +
                     ")" +
                     "\" style=\"text-anchor:middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"10\">" +
@@ -659,7 +659,7 @@ class Hierarchical_List {
                 }
 
                 //genoeg plaats voorzien aan de rechterkant en eindigen
-                inSVG[elementCounter].xright = Math.max(inSVG[elementCounter].xright,20+11*(numlines-1));
+                inSVG[elementCounter].xright = Math.max(inSVG[elementCounter].xright,20+12*(numlines-1));
                 break;
 
               case "differentieel":
@@ -690,34 +690,16 @@ class Hierarchical_List {
                 inSVG[elementCounter].data +=
                   '<use xlink:href="#zekering_automatisch" x=\"' + inSVG[elementCounter].xleft +
                   '" y="' + inSVG[elementCounter].yup + '" />';
-                inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+15) +
-                  "\" y=\"" + (inSVG[elementCounter].yup-10) +
-                  "\"" +
-                  " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+15) +
-                  "," + (inSVG[elementCounter].yup-10) +
-                  ")" +
-                  "\" style=\"text-anchor:middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"10\">" +
-                  "\u0394" + htmlspecialchars(this.data[i].getKey("differentieel_waarde") + "mA") + "</text>";
-                inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+26) +
-                   "\" y=\"" + (inSVG[elementCounter].yup-10) +
-                   "\"" +
-                   " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+26) +
-                   "," + (inSVG[elementCounter].yup-10) +
-                   ")" +
-                    "\" style=\"text-anchor:middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"10\">" +
-                   htmlspecialchars(this.data[i].getKey("aantal") + "P - " + this.data[i].getKey("amperage") + "A") + "</text>";
-
+                const differentieelWaarde = this.data[i].getKey("differentieel_waarde");
+                const polen = this.data[i].getKey("aantal");
+                const amperage = this.data[i].getKey("amperage");
+                const typeDiff = this.data[i].keys[17][2];
+                const diffText = htmlspecialchars(`${polen}P ${amperage}/${differentieelWaarde}A`)
+                inSVG[elementCounter].data += `<text x="${inSVG[elementCounter].xleft + 15}" y="${inSVG[elementCounter].yup - 10}" transform="rotate(-90 ${inSVG[elementCounter].xleft + 15},${inSVG[elementCounter].yup - 10})" style="text-anchor:middle" font-family="Arial, Helvetica, sans-serif" font-size="10">${diffText}</text>`;
                 //Code om het type toe te voegen
-                if ( (this.data[i].keys[17][2]=='A') || (this.data[i].keys[17][2]=='B') ) {
+                if (typeDiff != '') {
                   numlines = numlines + 1;
-                  inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
-                    "\" y=\"" + (inSVG[elementCounter].yup-10) +
-                    "\"" +
-                    " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
-                    "," + (inSVG[elementCounter].yup-10) +
-                    ")" +
-                    "\" style=\"text-anchor:middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"10\">" +
-                    htmlspecialchars("Type " + this.data[i].keys[17][2]) + "</text>";
+                  inSVG[elementCounter].data += `<text x="${inSVG[elementCounter].xleft + 15 + 12 * (numlines - 1)}" y="${inSVG[elementCounter].yup - 10}" transform="rotate(-90 ${inSVG[elementCounter].xleft + 15 + 12 * (numlines - 1)},${inSVG[elementCounter].yup - 10})" style="text-anchor:middle" font-family="Arial, Helvetica, sans-serif" font-size="10">${htmlspecialchars("Type " + typeDiff)}</text>`;
                 }
 
                 //Code om kortsluitvermogen toe te voegen
@@ -730,7 +712,7 @@ class Hierarchical_List {
                 }
 
                 //genoeg plaats voorzien aan de rechterkant en eindigen
-                inSVG[elementCounter].xright = Math.max(inSVG[elementCounter].xright,20+11*(numlines-1));
+                inSVG[elementCounter].xright = Math.max(inSVG[elementCounter].xright,40+12*(numlines-1));
                 break;
 
               case "differentieelautomaat":
@@ -781,10 +763,10 @@ class Hierarchical_List {
                 //Code om de curve toe te voegen
                 if ( (this.data[i].keys[18][2]=='B') || (this.data[i].keys[18][2]=='C') || (this.data[i].keys[18][2]=='D') ) {
                   numlines = numlines + 1;
-                  inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
+                  inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+15+12*(numlines-1)) +
                    "\" y=\"" + (inSVG[elementCounter].yup-10) +
                    "\"" +
-                   " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
+                   " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+15+12*(numlines-1)) +
                    "," + (inSVG[elementCounter].yup-10) +
                    ")" +
                    "\" style=\"text-anchor:middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"10\">" +
@@ -794,10 +776,10 @@ class Hierarchical_List {
                 //Code om het type toe te voegen
                 if ( (this.data[i].keys[17][2]=='A') || (this.data[i].keys[17][2]=='B') ) {
                   numlines = numlines + 1;
-                  inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
+                  inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+15+12*(numlines-1)) +
                     "\" y=\"" + (inSVG[elementCounter].yup-10) +
                     "\"" +
-                    " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
+                    " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+15+12*(numlines-1)) +
                     "," + (inSVG[elementCounter].yup-10) +
                     ")" +
                     "\" style=\"text-anchor:middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"10\">" +
@@ -814,7 +796,7 @@ class Hierarchical_List {
                 }
 
                 //genoeg plaats voorzien aan de rechterkant en eindigen
-                inSVG[elementCounter].xright = Math.max(inSVG[elementCounter].xright,20+11*(numlines-1));
+                inSVG[elementCounter].xright = Math.max(inSVG[elementCounter].xright,20+12*(numlines-1));
                 break;
 
               case "schakelaar":
@@ -873,31 +855,23 @@ class Hierarchical_List {
                 break;
             }
 
+            const verticalCounterSpace = 40;
             //draw the counter
-            inSVG[elementCounter].data += '<line x1="1" ' +
-              'y1="' + (inSVG[elementCounter].yup+25) +
-              '" x2="' + (21+extrashift)  + '" '+
-              'y2="' + (inSVG[elementCounter].yup+25) + '" stroke="black"></line>';
+            inSVG[elementCounter].data += `<line x1="1" y1="${inSVG[elementCounter].yup + verticalCounterSpace}" x2="${21 + extrashift}" y2="${inSVG[elementCounter].yup + verticalCounterSpace}" stroke="black"></line>`;
 
             //draw outgoing connecting lines
-            inSVG[elementCounter].data += '<line x1="' + (61+extrashift) + '" ' +
-              'y1="' + (inSVG[elementCounter].yup+25) +
-              '" x2="' + (inSVG[elementCounter].xleft) + '" '+
-              'y2="' + (inSVG[elementCounter].yup+25) + '" stroke="black"></line>';
-            inSVG[elementCounter].data += '<line x1="' + (inSVG[elementCounter].xleft) +
-              '" y1="' + (inSVG[elementCounter].yup) +
-              '" x2="' + (inSVG[elementCounter].xleft) + '" '+
-              'y2="' + (inSVG[elementCounter].yup+25) + '" stroke="black"></line>';
+            inSVG[elementCounter].data += `<line x1="${61 + extrashift}" y1="${inSVG[elementCounter].yup + verticalCounterSpace}" x2="${inSVG[elementCounter].xleft}" y2="${inSVG[elementCounter].yup + verticalCounterSpace}" stroke="black"></line>`;
+            inSVG[elementCounter].data += `<line x1="${inSVG[elementCounter].xleft}" y1="${inSVG[elementCounter].yup}" x2="${inSVG[elementCounter].xleft}" y2="${inSVG[elementCounter].yup + verticalCounterSpace}" stroke="black"></line>`;
 
             //Draw the counter
-            inSVG[elementCounter].data += '<use xlink:href="#elektriciteitsmeter" x="' + (21+extrashift) + '" y="' + (inSVG[elementCounter].yup+25) + '"></use>';
+            inSVG[elementCounter].data += '<use xlink:href="#elektriciteitsmeter" x="' + (21+extrashift) + '" y="' + (inSVG[elementCounter].yup+verticalCounterSpace) + '"></use>';
 
             //set kabel type Text
-            inSVG[elementCounter].data += '<text x="' + (85+extrashift) + '" y="' + (inSVG[elementCounter].yup+40) +
+            inSVG[elementCounter].data += '<text x="' + (85+extrashift) + '" y="' + (inSVG[elementCounter].yup+verticalCounterSpace + 15) +
                '" style="text-anchor:left" font-family="Arial, Helvetica, sans-serif" font-size="10">' +
                htmlspecialchars(this.data[i].getKey("kabel")) + '</text>';
             if (this.data[i].keys[24][2] != "") {
-              inSVG[elementCounter].data += '<text x="55" y="' + (inSVG[elementCounter].yup+40) +
+              inSVG[elementCounter].data += '<text x="55" y="' + (inSVG[elementCounter].yup+ verticalCounterSpace + 15) +
                  '" style="text-anchor:end" font-family="Arial, Helvetica, sans-serif" font-size="10">' +
                  htmlspecialchars(this.data[i].keys[24][2]) + '</text>';
             }
@@ -905,12 +879,12 @@ class Hierarchical_List {
             //inSVG[elementCounter].xleft = Math.max(inSVG[elementCounter].xleft,60);
             //inSVG[elementCounter].xright = Math.max(inSVG[elementCounter].xright,10);
             //Foresee sufficient room below for the counter
-            inSVG[elementCounter].yup += 25;
-            inSVG[elementCounter].ydown = 25;
+            inSVG[elementCounter].yup += verticalCounterSpace;
+            inSVG[elementCounter].ydown = verticalCounterSpace;
 
             //If adres is not empty, put it below
             if (!(/^\s*$/.test(this.data[i].keys[15][2]))) { //check if adres contains only white space
-              inSVG[elementCounter].data += '<text x="' + (41+extrashift) + '" y="' + (inSVG[elementCounter].yup+inSVG[elementCounter].ydown+10) + '" style="text-anchor:middle" font-family="Arial, Helvetica, sans-serif" font-size="10" font-style="italic">' + htmlspecialchars(this.data[i].keys[15][2]) + '</text>';
+              inSVG[elementCounter].data += '<text x="' + (41+extrashift) + '" y="' + (inSVG[elementCounter].yup+inSVG[elementCounter].ydown) + '" style="text-anchor:middle" font-family="Arial, Helvetica, sans-serif" font-size="10" font-style="italic">' + htmlspecialchars(this.data[i].keys[15][2]) + '</text>';
               inSVG[elementCounter].ydown += 15;
             }
 
@@ -1250,95 +1224,66 @@ class Hierarchical_List {
 
                 //Basiscode voor het amperage
                 var numlines = 1;
+                const curve = this.data[i].keys[17][2];
                 inSVG[elementCounter].yup += 30;
                 inSVG[elementCounter].data +=
-                  '<use xlink:href="#zekering_automatisch" x=\"' + inSVG[elementCounter].xleft +
-                  '" y="' + inSVG[elementCounter].yup + '" />';
-                inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+15) +
-                  "\" y=\"" + (inSVG[elementCounter].yup-10) +
-                  "\"" +
-                  " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+15) +
-                  "," + (inSVG[elementCounter].yup-10) +
-                  ")" +
-                  "\" style=\"text-anchor:middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"10\">" +
-                  htmlspecialchars(this.data[i].getKey("aantal") + "P - " + this.data[i].getKey("amperage") + "A") + "</text>";
-
-                //Code om de curve toe te voegen
-                if ( (this.data[i].keys[17][2]=='B') || (this.data[i].keys[17][2]=='C') || (this.data[i].keys[17][2]=='D') ) {
-                  numlines = numlines + 1;
-                  inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
-                    "\" y=\"" + (inSVG[elementCounter].yup-10) +
-                    "\"" +
-                    " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
-                    "," + (inSVG[elementCounter].yup-10) +
-                    ")" +
-                    "\" style=\"text-anchor:middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"10\">" +
-                    htmlspecialchars("Curve " + this.data[i].keys[17][2]) + "</text>";
-                }
+                  `<use xlink:href="#zekering_automatisch" x="${inSVG[elementCounter].xleft}" y="${inSVG[elementCounter].yup}" />`;
+                inSVG[elementCounter].data += `<text x="${inSVG[elementCounter].xleft + 15}" y="${inSVG[elementCounter].yup - 10}" transform="rotate(-90 ${inSVG[elementCounter].xleft + 15},${inSVG[elementCounter].yup - 10})" style="text-anchor:middle" font-family="Arial, Helvetica, sans-serif" font-size="10">${htmlspecialchars(this.data[i].getKey("aantal") + "P " + curve + this.data[i].getKey("amperage"))}</text>`;
 
                 //Code om kortsluitvermogen toe te voegen
                 if ( (this.data[i].keys[22][2]!='') ) {
                   numlines = numlines + 1;
-                  const textX = inSVG[elementCounter].xleft + 15 + 11 * (numlines - 1);
+                  const textX = inSVG[elementCounter].xleft + 18 + 12 * (numlines - 1);
                   const textY = inSVG[elementCounter].yup - 10;
                   inSVG[elementCounter].data += `<text x="${textX}" y="${textY}" transform="rotate(-90 ${textX},${textY})" style="text-anchor:middle;border:1px solid black" font-family="Arial, Helvetica, sans-serif" font-size="10">${htmlspecialchars("" + this.data[i].keys[22][2])}</text>`;
                   inSVG[elementCounter].data += `<rect x="${textX}" y="${textY}" transform="rotate( 90 ${textX} ${textY})" width='40' height = '12' style='fill: none;stroke: black;'></rect>`;
                 }
 
                 //genoeg plaats voorzien aan de rechterkant en eindigen
-                inSVG[elementCounter].xright = Math.max(inSVG[elementCounter].xright,20+11*(numlines-1));
+                inSVG[elementCounter].xright = Math.max(inSVG[elementCounter].xright,15+12*(numlines-1));
                 break;  
 
               case "differentieel":
 
                 //Basiscode voor het amperage en de sluitstroom
-                var numlines = 2;
+                var numlines = 1;
+                const differentieelWaarde = this.data[i].getKey("differentieel_waarde");
+                const polen = this.data[i].getKey("aantal");
+                const amperage = this.data[i].getKey("amperage");
+                const typeDiff = this.data[i].keys[17][2];
+                const diffText = htmlspecialchars(`${polen}P ${amperage} / ${differentieelWaarde}A`)
+                const kortsluitstroom = this.data[i].keys[22][2];
+
                 inSVG[elementCounter].yup += 30;
-                inSVG[elementCounter].data +=
-                  '<use xlink:href="#zekering_automatisch" x=\"' + inSVG[elementCounter].xleft +
-                  '" y="' + inSVG[elementCounter].yup + '" />';
-                inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+15) +
-                  "\" y=\"" + (inSVG[elementCounter].yup-10) +
-                  "\"" +
-                  " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+15) +
-                  "," + (inSVG[elementCounter].yup-10) +
-                  ")" +
-                  "\" style=\"text-anchor:middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"10\">" +
-                  "\u0394" + htmlspecialchars(this.data[i].getKey("differentieel_waarde") + "mA") + "</text>";
-                inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+26) +
-                   "\" y=\"" + (inSVG[elementCounter].yup-10) +
-                   "\"" +
-                   " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+26) +
-                   "," + (inSVG[elementCounter].yup-10) +
-                   ")" +
-                    "\" style=\"text-anchor:middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"10\">" +
-                   htmlspecialchars(this.data[i].getKey("aantal") + "P - " + this.data[i].getKey("amperage") + "A") + "</text>";
+                inSVG[elementCounter].data += `<use xlink:href="#zekering_automatisch" x="${inSVG[elementCounter].xleft}" y="${inSVG[elementCounter].yup}" />`;
+                inSVG[elementCounter].data += `<text x="${inSVG[elementCounter].xleft + 15}" y="${inSVG[elementCounter].yup - 10}" transform="rotate(-90 ${inSVG[elementCounter].xleft + 15},${inSVG[elementCounter].yup - 10})" style="text-anchor:middle" font-family="Arial, Helvetica, sans-serif" font-size="10">${diffText}</text>`;
+                // inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+26) +
+                //    "\" y=\"" + (inSVG[elementCounter].yup-10) +
+                //    "\"" +
+                //    " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+26) +
+                //    "," + (inSVG[elementCounter].yup-10) +
+                //    ")" +
+                //     "\" style=\"text-anchor:middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"10\">" +
+                //    htmlspecialchars(this.data[i].getKey("aantal") + "P - " + this.data[i].getKey("amperage") + "A") + "</text>";
 
                 //Code om het type toe te voegen
-                if ( (this.data[i].keys[17][2]=='A') || (this.data[i].keys[17][2]=='B') ) {
+                if (typeDiff != '' ) {
                   numlines = numlines + 1;
-                  inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
-                    "\" y=\"" + (inSVG[elementCounter].yup-10) +
-                    "\"" +
-                    " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
-                    "," + (inSVG[elementCounter].yup-10) +
-                    ")" +
-                    "\" style=\"text-anchor:middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"10\">" +
-                    htmlspecialchars("Type " + this.data[i].keys[17][2]) + "</text>";
+                  inSVG[elementCounter].data += `<text x="${inSVG[elementCounter].xleft + 15 + 12 * (numlines - 1)}" y="${inSVG[elementCounter].yup - 10}" transform="rotate(-90 ${inSVG[elementCounter].xleft + 15 + 12 * (numlines - 1)},${inSVG[elementCounter].yup - 10})" style="text-anchor:middle" font-family="Arial, Helvetica, sans-serif" font-size="10">${htmlspecialchars("Type " + typeDiff)}</text>`;
 
                 }
 
-                //Code om kortsluitvermogen toe te voegen
-                if ( (this.data[i].keys[22][2]!='') ) {
+                //Code om kortsluitstroom toe te voegen
+                if ( (kortsluitstroom!='') ) {
                   numlines = numlines + 1;
-                  const textX = (inSVG[elementCounter].xleft + 15 + 11 * (numlines - 1)) + "";
+                  const textX = (inSVG[elementCounter].xleft + 18 + 12 * (numlines - 1)) + "";
                   const textY = (inSVG[elementCounter].yup - 10) + "";
                   inSVG[elementCounter].data += `<text x="${textX}" y="${textY}" transform="rotate(-90 ${textX} ${textY})" style="text-anchor:middle;border:1px solid black" font-family="Arial, Helvetica, sans-serif" font-size="10">${htmlspecialchars("" + this.data[i].keys[22][2])}</text>`;
                   inSVG[elementCounter].data += `<rect x="${textX}" y="${textY}" transform="rotate( 90 ${textX} ${textY})" width='40' height = '12' style='fill: none;stroke: black;'></rect>`;
                 }
 
                 //genoeg plaats voorzien aan de rechterkant en eindigen
-                inSVG[elementCounter].xright = Math.max(inSVG[elementCounter].xright,20+11*(numlines-1));
+                inSVG[elementCounter].xright = Math.max(inSVG[elementCounter].xright,40+12*(numlines-1));
                 break;
 
               case "differentieelautomaat":
@@ -1369,10 +1314,10 @@ class Hierarchical_List {
                 //Code om de curve toe te voegen
                 if ( (this.data[i].keys[18][2]=='B') || (this.data[i].keys[18][2]=='C') || (this.data[i].keys[18][2]=='D') ) {
                  numlines = numlines + 1;
-                 inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
+                 inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+15+12*(numlines-1)) +
                    "\" y=\"" + (inSVG[elementCounter].yup-10) +
                    "\"" +
-                   " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
+                   " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+15+12*(numlines-1)) +
                    "," + (inSVG[elementCounter].yup-10) +
                    ")" +
                    "\" style=\"text-anchor:middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"10\">" +
@@ -1382,10 +1327,10 @@ class Hierarchical_List {
                 //Code om het type toe te voegen
                 if ( (this.data[i].keys[17][2]=='A') || (this.data[i].keys[17][2]=='B') ) {
                   numlines = numlines + 1;
-                  inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
+                  inSVG[elementCounter].data += "<text x=\"" + (inSVG[elementCounter].xleft+15+12*(numlines-1)) +
                     "\" y=\"" + (inSVG[elementCounter].yup-10) +
                     "\"" +
-                    " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+15+11*(numlines-1)) +
+                    " transform=\"rotate(-90 " + (inSVG[elementCounter].xleft+15+12*(numlines-1)) +
                     "," + (inSVG[elementCounter].yup-10) +
                     ")" +
                     "\" style=\"text-anchor:middle\" font-family=\"Arial, Helvetica, sans-serif\" font-size=\"10\">" +
@@ -1402,7 +1347,7 @@ class Hierarchical_List {
                 }
 
                 //genoeg plaats voorzien aan de rechterkant en eindigen
-                inSVG[elementCounter].xright = Math.max(inSVG[elementCounter].xright,20+11*(numlines-1));
+                inSVG[elementCounter].xright = Math.max(inSVG[elementCounter].xright,20+12*(numlines-1));
                 break;
 
               case "schakelaar":
@@ -1506,8 +1451,8 @@ class Hierarchical_List {
             inSVG[elementCounter].data += '<line x1="' + inSVG[elementCounter].xleft +
             '" x2="' + inSVG[elementCounter].xleft +
             '" y1="' + inSVG[elementCounter].yup +
-            '" y2="' + (inSVG[elementCounter].yup+15) + '" stroke="black" />';
-            inSVG[elementCounter].yup += 15;
+            '" y2="' + (inSVG[elementCounter].yup+30) + '" stroke="black" />';
+            inSVG[elementCounter].yup += 30;
 
             //if there is nothing, still draw an empty one
             if (inSVG[elementCounter].yup <= 0) {

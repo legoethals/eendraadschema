@@ -416,7 +416,7 @@ class Electro_Item extends List_Item {
         output += "Zekering: " + this.selectToHTML(7,["automatisch","differentieel","differentieelautomaat","smelt","geen","---","schakelaar","schemer","overspanningsbeveiliging"]);
         if (this.keys[7][2] != "geen") output += this.selectToHTML(4,["2","3","4","-","1"]) + this.stringToHTML(8,2) + "A";
         if (this.getKey("zekering")=="differentieel") {
-          output += ", \u0394 " + this.stringToHTML(11,3) + "mA";
+          output += ", \u0394 " + this.stringToHTML(11,3) + "A";
           output += ", Type:" + this.selectToHTML(17,["","A","B"]);
           output += ", Kortsluitvermogen: " + this.stringToHTML(22,3) + "A";
           output += ", Selectief: " + this.checkboxToHTML(20);
@@ -426,7 +426,7 @@ class Electro_Item extends List_Item {
           output += ", Kortsluitvermogen: " + this.stringToHTML(22,3) + "A";
         }
         if (this.getKey("zekering")=="differentieelautomaat") {
-          output += ", \u0394 " + this.stringToHTML(11,3) + "mA";
+          output += ", \u0394 " + this.stringToHTML(11,3) + "A";
           output += ", Curve:" + this.selectToHTML(18,["","B","C","D"]);
           output += ", Type:" + this.selectToHTML(17,["","A","B"]);
           output += ", Kortsluitvermogen: " + this.stringToHTML(22,3) + "A";
